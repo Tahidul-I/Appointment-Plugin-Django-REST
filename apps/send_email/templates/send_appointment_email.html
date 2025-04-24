@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Template</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f7f7f7;">
+  <div
+    style="max-width: 600px; margin: 2rem auto; padding: 1rem; background: #ffffff; border: 1px solid #e0e0e0; border-radius: 8px;">
+    <div style="padding: 1rem;">
+      <!-- Header Section -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <div>
+          <p style="font-size: 14px; color: #333333; margin: 0.5rem 0;"><strong>Order Number:</strong> {{booking_obj.track_id}}</p>
+          <p style="font-size: 14px; color: #333333; margin: 0.5rem 0;"><strong>Order Date:</strong> {{booking_obj.created_at | date:"D, d M, Y"}}
+          </p>
+          <p style="font-size: 14px; color: #333333; margin: 0.5rem 0;"><strong>Company:</strong> {{booking_obj.client.company_name}}</p>
+        </div>
+        <a href="https://meherunbeauty.abroadportals.com/" target="_blank">
+          <img src="{{booking_obj.client.logo}}"
+            alt="CoderSquad" style=" max-width: 100px; height: auto;" />
+        </a>
+      </div>
+      <!-- Main Heading -->
+      <h2 style="font-size: 18px; text-align: center; color: #26278df1; margin: 1rem 0;">
+        Thank you for choosing our services !
+      </h2>
+
+      <!-- Intro Text -->
+      <p style="font-size: 14px; color: #666666; margin-bottom: 1rem;">
+        Your appointment has been successfully scheduled. Below are your booking details. A confirmation email with the
+        same information has been sent to your registered email address. Please keep this email for your reference:
+      </p>
+
+      <!-- Shop Details -->
+      <div style="margin-top: 1rem;">
+        <strong style="display: block; margin-bottom: 0.5rem; font-size: 14px; color: #333333;">
+          Shop Details:</strong>
+        <!-- Scrollable Table Container -->
+        <div style="overflow-x: auto; border: 1px solid #e0e0e0; border-radius: 4px; padding: 1rem;">
+          <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+            <tbody>
+              <tr>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  Name
+                </td>
+                <td
+                  style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0; text-align: center;">
+                  :</td>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  {{booking_obj.client.company_name}}
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  Address
+                </td>
+                <td
+                  style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0; text-align: center;">
+                  :</td>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  {{booking_obj.client.address}}
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">Email</td>
+                <td
+                  style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0; text-align: center;">
+                  :</td>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  {{booking_obj.client.email}}</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  Contact Number</td>
+                <td
+                  style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0; text-align: center;">
+                  :</td>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  {{booking_obj.client.phone}}</td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <br />
+      <div style="margin-top: 1rem;">
+        <strong style="display: block; margin-bottom: 0.5rem; font-size: 14px; color: #333333;">
+          Appointment Details:</strong>
+        <!-- Scrollable Table Container -->
+        <div style="overflow-x: auto; border: 1px solid #e0e0e0; border-radius: 4px; padding: 1rem;">
+          <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
+            <tbody>
+              <tr>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  Date
+                </td>
+                <td
+                  style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0; text-align: center;">
+                  :</td>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  {{booking_obj.selected_date |date:"jS F, Y"}}
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  Specialist</td>
+                <td
+                  style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0; text-align: center;">
+                  :</td>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  {{booking_obj.staff.name}}</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  Start Time
+                </td>
+                <td
+                  style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0; text-align: center;">
+                  :
+                </td>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  {{booking_obj.start_time_slot |time:"h:i A"}}
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                  End Time
+                </td>
+                <td
+                  style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0; text-align: center;">
+                  :</td>
+                <td style="padding: 0.5rem; font-size: 14px; color: #555555; border: 1px solid #e0e0e0;">
+                    {{booking_obj.end_time_slot |time:"h:i A"}}
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <strong style="font-size: 15px; color: #333333; margin-top: 1rem">Booked Services :</strong>
+        <!-- Services section -->
+        <ul style="font-weight: 500;font-size: 14px;color: #6b7280;margin-top: 0.25rem;">
+          {% for service in appointment_services %}
+          <li>{{service.service.name}}</li>
+          {% endfor %}
+        </ul>
+        <div style="margin-top: 40px">
+          <p style="font-size: 16px; color: #6b7280">
+            Thank you for choosing our services. We truly value your trust in
+            us.
+          </p>
+          <p style="font-size: 16px; color: #6b7280">
+            Best Wishes,
+            <br />
+            <span style="font-size: 16px; color: #26278df1"
+              >The CoderSquad Team</span
+            >
+          </p>
+        </div>
+    </div>
+
+    <hr style="border: 1px solid #e5e7eb; margin: 24px 0;">
+    <!-- Footer -->
+    <footer style="text-align: center; margin-top: 32px;">
+      <h3 style="font-size: 18px; color: #374151;">Get In Touch With Us</h3>
+      <p style="font-size: 16px; color: #6b7280;">Stay updated with the latest services.</p>
+
+      <!-- Social media icons -->
+      <div style="margin-top: 16px;">
+        <a href="#" style="margin: 0 10px;"><img
+            src="https://res.cloudinary.com/dohwf5pyi/image/upload/v1724049517/samples/Meherun/fbicon_dinof3.png"
+            alt="Facebook" style="width: 30px; height: 30px;"></a>
+        <a href="#" style="margin: 0 10px;"><img src="https://i.ibb.co/cJbSJ2K/twitter.png" alt="Twitter"
+            style="width: 30px; height: 30px;"></a>
+        <a href="#" style="margin: 0 10px;"><img src="https://i.ibb.co/P60Jbqy/insta.png" alt="Instagram"
+            style="width: 30px; height: 30px;"></a>
+        <a href="https://wa.me/+8801733843279" target="_blank" style="margin: 0 10px;"><img
+            src="https://res.cloudinary.com/dohwf5pyi/image/upload/v1724049588/samples/Meherun/whatsappicon_ggbe0z.png"
+            alt="WhatsApp" style="width: 30px; height: 30px;"></a>
+      </div>
+
+      <p style="font-size: 14px; color: #6b7280; margin-top: 16px;">This email was sent to <a href="#"
+          style="color: #26278df1; text-decoration: none;">contact@plugin.com</a>. To unsubscribe, click <a href="#"
+          style="color: #26278df1; text-decoration: none;">here</a>.</p>
+      <p style="font-size: 14px; color: #6b7280;">© 2024 CoderSquad. All Rights Reserved.</p>
+    </footer>
+  </div>
+</body>
+
+</html>

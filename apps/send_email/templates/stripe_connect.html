@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            max-width: 600px;
+            width: 100%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #dddddd;
+            box-sizing: border-box;
+        }
+        .header-logo {
+            width: 100%;
+            max-width: 180px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .content-block {
+            padding: 20px;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            box-sizing: border-box;
+        }
+        .highlight {
+            color: #444444;
+            font-weight: bold;
+        }
+        .footer-text {
+            font-size: 12px;
+            line-height: 1.5;
+            text-align: center;
+            margin-top: 20px;
+            color: #666666;
+        }
+        .footer-text a {
+            color: #666666;
+            text-decoration: none;
+        }
+
+        /* Media Queries for Mobile Devices */
+        @media screen and (max-width: 480px) {
+            .email-container {
+                padding: 15px;
+            }
+            .content-block {
+                padding: 10px;
+            }
+            .footer-text {
+                font-size: 11px;
+            }
+            .header-logo {
+                max-width: 150px;
+                margin: 0 auto 20px auto;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            .email-container {
+                padding: 10px;
+            }
+            .content-block {
+                padding: 8px;
+                font-size: 14px;
+            }
+            .footer-text {
+                font-size: 10px;
+            }
+            .header-logo {
+                max-width: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <img src="https://res.cloudinary.com/dydv6uxzo/image/upload/v1726744440/appointment%20Plugin/logo_ss_kce1cj.jpg" alt="Fina Shoes" class="header-logo">
+        <div class="content-block">
+            <p>Hello {user_name}, please complete your Stripe account setup by following this link:</p>
+            <p><span class="highlight">{{client.connect_url}}</span></p>
+        </div>
+        <p class="footer-text">
+            Regards,<br>
+            Fina Shoes
+        </p>
+        <p class="footer-text">
+            This message was sent to {{client.email}} because you are a user of Fina Shoes. If you wish to no longer receive these emails, please contact your account administrator. Delivered by <a href="https://finashoes.smarteru.com/">https://finashoes.smarteru.com/</a>.
+        </p>
+    </div>
+</body>
+</html>
